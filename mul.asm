@@ -22,8 +22,6 @@ _start:
                 jmp             exit
 
 mul_long_long:
-                push            rsi
-                push            rcx
                 push            rdx
                 mov             r8, NUM_LEN
                 lea             r9, [rdx]
@@ -56,9 +54,8 @@ mul_long_long:
                 jnz             .loop
 
                 pop             rdi
-                pop             rcx
-                pop             rsi
                 ret
+
 
 mul_same_part:
                 mov             rax, [rdi]
