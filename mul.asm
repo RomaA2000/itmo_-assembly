@@ -2,7 +2,7 @@
                 section         .text
 
                 global          _start
-NUM_LEN         equ             128
+NUM_LEN         equ             256
 _start:
 
                 sub             rsp, 4 * NUM_LEN * 8
@@ -38,8 +38,9 @@ mul_long_long:
                 push            rsi
                 xor             rsi, rsi
 .inside_loop:
-                call            mul_same_part
+                call mul_same_part
                 add             [r9], rax
+                adc             rdx, 0
                 add             r9,  8
                 add             rdi, 8
                 dec             rcx
